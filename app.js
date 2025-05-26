@@ -16,7 +16,8 @@ const flashcards = [
 const cardGrid = document.getElementById("cardGrid");
 const clickSound = new Audio('cartinha.mp3');
 
-flashcards.forEach(({ question, answer }) => {
+flashcards.forEach(({ question, answer }, index) => {
+    setTimeout(() => {
     const card = document.createElement("div");
     card.classList.add("flashcard");
   
@@ -44,6 +45,8 @@ flashcards.forEach(({ question, answer }) => {
     card.addEventListener("click", () => {
       card.classList.toggle("flipped");
     });
-  
+
     cardGrid.appendChild(card);
+    }, index * 150)
+  
 });
