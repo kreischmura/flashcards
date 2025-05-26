@@ -14,18 +14,29 @@ const flashcards = [
   ];
   
 const cardGrid = document.getElementById("cardGrid");
+const clickSound = new Audio('cartinha.mp3');
 
 flashcards.forEach(({ question, answer }) => {
     const card = document.createElement("div");
     card.classList.add("flashcard");
   
-    const front = document.createElement("div");
+    const front = document.createElement("button");
     front.classList.add("front");
     front.textContent = question;
+
+    front.addEventListener("click", () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    });
   
-    const back = document.createElement("div");
+    const back = document.createElement("button");
     back.classList.add("back");
     back.textContent = answer;
+
+    back.addEventListener("click", () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    });
   
     card.appendChild(front);
     card.appendChild(back);
