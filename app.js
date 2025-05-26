@@ -13,4 +13,26 @@ const flashcards = [
     { question: "Quem é o líder da Akatsuki?", answer: "Pain (Nagato)" }
   ];
   
-  const cardGrid = document.getElementById("cardGrid");
+const cardGrid = document.getElementById("cardGrid");
+
+flashcards.forEach(({ question, answer }) => {
+    const card = document.createElement("div");
+    card.classList.add("flashcard");
+  
+    const front = document.createElement("div");
+    front.classList.add("front");
+    front.textContent = question;
+  
+    const back = document.createElement("div");
+    back.classList.add("back");
+    back.textContent = answer;
+  
+    card.appendChild(front);
+    card.appendChild(back);
+  
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+    });
+  
+    cardGrid.appendChild(card);
+});
